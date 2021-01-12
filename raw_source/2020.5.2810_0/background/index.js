@@ -221,9 +221,9 @@ let BgPageInstance = function () {
 
                 else if (request.type === MSG_TYPE.OPEN_DYNAMIC_TOOL)
                   chrome.DynamicToolRunner(request), callback && callback();
-                else if (request.type === MSG_TYPE.OPEN_PAGE) chrome.DynamicToolRunner({
-                    tool: request.page
-                }), callback && callback();
+
+                else if (request.type === MSG_TYPE.OPEN_PAGE)
+                  chrome.DynamicToolRunner({ tool: request.page }), callback && callback();
                 else if (request.type === MSG_TYPE.DYNAMIC_ANY_THING) {
                     let func = eval(request.func);
                     func && func(request.params, callback)
